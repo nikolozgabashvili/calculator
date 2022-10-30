@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         if (clickedView is TextView) {
             operand = clickedView.text.toString()
-            num1 = result.text.toString().toDouble()
-
+            if (text2.text == "0") {
+                num1 = result.text.toString().toDouble()
+            }
 
 
             val ma = result.text.toString()
