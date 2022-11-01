@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private var num1 = 0.0
     private var operand = " "
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -50,8 +51,7 @@ class MainActivity : AppCompatActivity() {
 
             val ma = result.text.toString()
             val na = text2.text.toString()
-            if ((na[na.length - 1] == '/' || na[na.length - 1] == '*' || na[na.length - 1] == '+' || na[na.length - 1] == '-') && ma.length == 1
-            ) {
+            if ((na[na.length - 1] == '/' || na[na.length - 1] == '*' || na[na.length - 1] == '+' || na[na.length - 1] == '-') && ma.length == 1) {
                 text2.text = na.substring(0, na.length - 1) + operand
 
             } else {
@@ -74,17 +74,17 @@ class MainActivity : AppCompatActivity() {
 
     fun back(view: View) {
 
-        var text3 =num1.toString().substring(0,num1.toString().length-2)
+        var text3 = num1.toString().substring(0, num1.toString().length - 2)
         var text1 = result.text.toString()
-        if (text1.length == 1 && num1 ==0.0) {
+        if (text1.length == 1 && num1 == 0.0) {
             result.text = "0"
-        }else if (text1.length == 1){
+        } else if (text1.length == 1) {
             result.text = text3
             text2.text = "0"
             num1 = 0.0
 
 
-        }else {
+        } else {
             result.text = text1.substring(0, text1.length - 1)
         }
 
@@ -99,19 +99,15 @@ class MainActivity : AppCompatActivity() {
 
             println(num2)
             println(txt.length)
-            if (operand == " "){
+            if (operand == " ") {
                 result.text = result.text.toString()
             } else {
 
                 when (operand) {
-                    "+" -> result.text =
-                        (num1 + num2.toDouble()).toString()
-                    "-" -> result.text =
-                        (num1  - num2.toDouble()).toString()
-                    "*" -> result.text =
-                        (num1  * num2.toDouble()).toString()
-                    "/" -> result.text =
-                        (num1  / num2.toDouble()).toString()
+                    "+" -> result.text = (num1 + num2.toDouble()).toString()
+                    "-" -> result.text = (num1 - num2.toDouble()).toString()
+                    "*" -> result.text = (num1 * num2.toDouble()).toString()
+                    "/" -> result.text = (num1 / num2.toDouble()).toString()
 
 
                 }
@@ -135,13 +131,12 @@ class MainActivity : AppCompatActivity() {
             var sum = 0
             val txt = result.text.toString()
 
-            val a = txt.length
 
-            for (i in 0 until a)
-                if (txt[i] == '.') {
-                    sum += 1
 
-                }
+            for (i in txt.indices) if (txt[i] == '.') {
+                sum += 1
+
+            }
             if (sum == 0) {
                 result.text = "$txt."
             }
