@@ -44,14 +44,14 @@ class MainActivity : AppCompatActivity() {
 
         if (clickedView is TextView) {
             operand = clickedView.text.toString()
-            if (text2.text == "0") {
+            if (result.text != "0") {
                 num1 = result.text.toString().toDouble()
             }
 
 
             val ma = result.text.toString()
             val na = text2.text.toString()
-            if ((na[na.length - 1] == '/' || na[na.length - 1] == '*' || na[na.length - 1] == '+' || na[na.length - 1] == '-') && ma.length == 1) {
+            if ((na[na.length - 1] == '/' || na[na.length - 1] == '*' || na[na.length - 1] == '+' || na[na.length - 1] == '-') && result.text == "0") {
                 text2.text = na.substring(0, na.length - 1) + operand
 
             } else {
@@ -120,6 +120,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             text2.text = "0"
+            num1 = 0.0
 
 
         }
